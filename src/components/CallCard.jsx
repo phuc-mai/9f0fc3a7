@@ -35,8 +35,16 @@ const CallCard = ({ id, updateArchiveStatus }) => {
     getCallDetails();
   }, [id]);
 
-  const { direction, from, via, duration, call_type, created_at, is_archived } =
-    callDetails;
+  const {
+    direction,
+    from,
+    to,
+    via,
+    duration,
+    call_type,
+    created_at,
+    is_archived,
+  } = callDetails;
 
   const date = new Date(created_at);
   const formattedDate = date.toLocaleDateString("en-US", {
@@ -91,7 +99,7 @@ const CallCard = ({ id, updateArchiveStatus }) => {
                   fontWeight: "700",
                 }}
               >
-                {from}
+                {direction === "outbound" ? to : from}
               </Typography>
             </Box>
             <Typography
