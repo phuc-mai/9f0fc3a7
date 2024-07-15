@@ -18,6 +18,7 @@ const Menu = () => {
         flexDirection: "column",
         backgroundColor: theme.palette.background.layer2,
         borderRadius: "20px 20px 0 0",
+        overflow: "hidden"
       }}
     >
       <Box

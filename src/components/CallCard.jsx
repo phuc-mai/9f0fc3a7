@@ -4,6 +4,7 @@ import {
   ExpandMore,
   PhoneCallback,
   PhoneForwarded,
+  PhoneMissed,
   Unarchive,
 } from "@mui/icons-material";
 import { Box, IconButton, Tooltip, Typography, useTheme } from "@mui/material";
@@ -76,11 +77,14 @@ const CallCard = ({ id, updateArchiveStatus }) => {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          {direction === "outbound" ? (
+          {call_type === "missed" ? (
+            <PhoneMissed sx={{ color: "red" }} />
+          ) : direction === "outbound" ? (
             <PhoneForwarded sx={{ color: "#E89610" }} />
           ) : (
             <PhoneCallback sx={{ color: "#55BD24" }} />
           )}
+          
           <Box sx={{ marginLeft: "15px" }}>
             <Box sx={{ display: "flex", alignItems: "baseline", gap: "7px" }}>
               <Typography
