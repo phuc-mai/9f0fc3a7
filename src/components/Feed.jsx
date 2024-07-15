@@ -21,7 +21,7 @@ const Feed = ({ option }) => {
       } else if (option === "Archived") {
         filteredData = data.filter((call) => call.is_archived);
       } else if (option === "Missed") {
-        filteredData = data.filter((call) => call.call_type === "missed");
+        filteredData = data.filter((call) => call.call_type === "missed" && !call.is_archived);
       }
 
       setCallList(filteredData);
